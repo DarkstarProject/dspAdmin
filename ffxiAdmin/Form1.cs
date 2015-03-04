@@ -122,7 +122,7 @@ namespace dspAdmin
                 string myQuery4 = "select timelastmodify from accounts where id=" + reader["accid"].ToString() + ";";
         //        MySqlCommand myCmd4 = new MySqlCommand(myQuery4, conn4);
         //        string result3 = (string)myCmd4.ExecuteScalar().ToString();
-                string result3 = "greg";
+                string result3 = "notfixed";
                 dgvCharacters.Rows.Add(listImg, reader["charid"].ToString(), result2, reader["charname"].ToString(), foundZone, charIP, result3);
                 charcount++;
             }
