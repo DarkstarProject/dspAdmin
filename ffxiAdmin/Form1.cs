@@ -335,15 +335,7 @@ namespace dspAdmin
                             lstMonsters.Items.Add(monster);
                         break;
                     case 2:
-                        if (conn.State == ConnectionState.Closed)
-                            conn.Open();
-                        string chatQuery = "select type, speaker, recipient, message, datetime from audit_chat order by datetime desc limit 50";
-                        MySqlCommand myChatCmd = new MySqlCommand(chatQuery, conn);
-                        MySqlDataReader chatReader = myChatCmd.ExecuteReader();
-                        while (chatReader.Read())
-                        {
-                            dgChat.Rows.Add(chatReader[0], chatReader[1], chatReader[2], Regex.Unescape(chatReader[3].ToString().Remove(0,2)), chatReader[4]);
-                        }
+                        refreshChat();
                         break;
                     default:
                         break;
@@ -357,6 +349,30 @@ namespace dspAdmin
                     tabControl1.SelectedIndex = 3;
                 }
             }
+        }
+
+        private void refreshChat()
+        {
+            string chatQuery = "";
+            if (conn.State == ConnectionState.Closed)
+                conn.Open();
+            if (txtCharListRefreshValue.Text != null)
+                chatQuery = "select type, speaker, recipient, CONVERT(message using utf8), datetime from audit_chat order by datetime desc limit " + txtCharListRefreshValue.Text + ";";
+            else
+            {
+                MessageBox.Show("Please enter a valid value for the number of messages displayed");
+                tmrRefreshChat.Stop();
+                chkRefresh.CheckState = CheckState.Unchecked;
+                return;
+            }
+            MySqlCommand myChatCmd = new MySqlCommand(chatQuery, conn);
+            MySqlDataReader chatReader = myChatCmd.ExecuteReader();
+            dgChat.Rows.Clear();
+            while (chatReader.Read())
+            {
+                dgChat.Rows.Add(chatReader[0], chatReader[1], chatReader[2], chatReader[3], chatReader[4]);
+            }
+            chatReader.Close();
         }
 
         private void txtFilter_TextChanged(object sender, EventArgs e)
@@ -446,6 +462,29 @@ namespace dspAdmin
                     }
                 }
             }
+        }
+
+        private void tmrRefreshChat_Tick(object sender, EventArgs e)
+        {
+            refreshChat();
+        }
+
+        private void cbChatRefresh_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbChatRefresh.Checked)
+                tmrRefreshChat.Start();
+            else
+                tmrRefreshChat.Stop();
+        }
+
+        private void btnChatRefresh_Click(object sender, EventArgs e)
+        {
+            refreshChat();
+        }
+
+        private void txtShowMessages_TextChanged(object sender, EventArgs e)
+        {
+            refreshChat();
         }
 
 
