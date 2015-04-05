@@ -115,19 +115,19 @@ namespace dspAdmin
                 }
                 else
                     listImg = imgOffline;
-           //     reader.Close();
                 string myQuery3 = "select login from accounts where id=" + reader["accid"].ToString() + ";";
                 MySqlCommand myCmd3 = new MySqlCommand(myQuery3, conn3);
                 string result2 = (string)myCmd3.ExecuteScalar();
                 string myQuery4 = "select timelastmodify from accounts where id=" + reader["accid"].ToString() + ";";
-        //        MySqlCommand myCmd4 = new MySqlCommand(myQuery4, conn4);
-        //        string result3 = (string)myCmd4.ExecuteScalar().ToString();
-                string result3 = "notfixed";
+                MySqlCommand myCmd4 = new MySqlCommand(myQuery4, conn4);
+                string result3 = Convert.ToString(myCmd4.ExecuteScalar());
                 dgvCharacters.Rows.Add(listImg, reader["charid"].ToString(), result2, reader["charname"].ToString(), foundZone, charIP, result3);
                 charcount++;
             }
             reader.Close();
             conn2.Close();
+            conn3.Close();
+            conn4.Close();
             tlstrNumbers.Text = "Total: " + charcount.ToString() + " Online: " + charOnline.ToString();
         }
 
@@ -284,7 +284,7 @@ namespace dspAdmin
             bool iFailed = false;
             if (txtServerName.Text == "" | txtDB.Text == "" | txtDBUname.Text == "" | txtDBPassword.Text == "")
                 return false;
-            MySqlConnection connectionTest = new MySqlConnection("Address = " + txtServerName.Text + ";Database=" + txtDB.Text + ";Persist Security Info=true;User Name='" + txtDBUname.Text + "';Password='" + txtDBPassword.Text + "'");
+            MySqlConnection connectionTest = new MySqlConnection("Address = " + txtServerName.Text + ";Database=" + txtDB.Text + ";Persist Security Info=true;User Name='" + txtDBUname.Text + "';Password='" + txtDBPassword.Text + "';Convert Zero Datetime=True");
             try
             {
                 connectionTest.Open();
@@ -304,7 +304,7 @@ namespace dspAdmin
         }
         private void createMySQLConnection()
         {
-            string connection = "Address = " + txtServerName.Text + ";Database=" + txtDB.Text + ";Persist Security Info=true;User Name='" + txtDBUname.Text + "';Password='" + txtDBPassword.Text + "'";
+            string connection = "Address = " + txtServerName.Text + ";Database=" + txtDB.Text + ";Persist Security Info=true;User Name='" + txtDBUname.Text + "';Password='" + txtDBPassword.Text + "';Convert Zero Datetime=True";
             conn = new MySqlConnection(connection);
         }
 
