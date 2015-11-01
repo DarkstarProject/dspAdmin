@@ -45,7 +45,7 @@
             this.chkChar_jobs = new System.Windows.Forms.CheckBox();
             this.chkChar_exp = new System.Windows.Forms.CheckBox();
             this.chkChar_equip = new System.Windows.Forms.CheckBox();
-            this.chkChar_merits = new System.Windows.Forms.CheckBox();
+            this.chkChar_merit = new System.Windows.Forms.CheckBox();
             this.chkChars = new System.Windows.Forms.CheckBox();
             this.btnExport = new System.Windows.Forms.Button();
             this.chkChar_Style = new System.Windows.Forms.CheckBox();
@@ -82,7 +82,7 @@
             this.groupBox1.Controls.Add(this.chkChar_jobs);
             this.groupBox1.Controls.Add(this.chkChar_exp);
             this.groupBox1.Controls.Add(this.chkChar_equip);
-            this.groupBox1.Controls.Add(this.chkChar_merits);
+            this.groupBox1.Controls.Add(this.chkChar_merit);
             this.groupBox1.Controls.Add(this.chkChars);
             this.groupBox1.Location = new System.Drawing.Point(60, 103);
             this.groupBox1.Name = "groupBox1";
@@ -242,15 +242,15 @@
             this.chkChar_equip.Text = "Equipment";
             this.chkChar_equip.UseVisualStyleBackColor = true;
             // 
-            // chkChar_merits
+            // chkChar_merit
             // 
-            this.chkChar_merits.AutoSize = true;
-            this.chkChar_merits.Location = new System.Drawing.Point(105, 42);
-            this.chkChar_merits.Name = "chkChar_merits";
-            this.chkChar_merits.Size = new System.Drawing.Size(54, 17);
-            this.chkChar_merits.TabIndex = 1;
-            this.chkChar_merits.Text = "Merits";
-            this.chkChar_merits.UseVisualStyleBackColor = true;
+            this.chkChar_merit.AutoSize = true;
+            this.chkChar_merit.Location = new System.Drawing.Point(105, 42);
+            this.chkChar_merit.Name = "chkChar_merit";
+            this.chkChar_merit.Size = new System.Drawing.Size(54, 17);
+            this.chkChar_merit.TabIndex = 1;
+            this.chkChar_merit.Text = "Merits";
+            this.chkChar_merit.UseVisualStyleBackColor = true;
             // 
             // chkChars
             // 
@@ -307,11 +307,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(407, 384);
-            this.ControlBox = false;
             this.Controls.Add(this.lblExportCharacter);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.chkEverything);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmCharExport";
             this.Text = "DSP Character Import/Export Utility";
             this.Load += new System.EventHandler(this.frmCharExport_Load);
@@ -341,7 +342,7 @@
         private System.Windows.Forms.CheckBox chkChar_jobs;
         private System.Windows.Forms.CheckBox chkChar_exp;
         private System.Windows.Forms.CheckBox chkChar_equip;
-        private System.Windows.Forms.CheckBox chkChar_merits;
+        private System.Windows.Forms.CheckBox chkChar_merit;
         private System.Windows.Forms.CheckBox chkChars;
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.CheckBox chkChar_Spells;

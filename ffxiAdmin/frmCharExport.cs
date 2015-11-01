@@ -41,7 +41,7 @@ namespace dspAdmin
             if (chkEverything.Checked)
             {
                 chkChars.Checked = true;
-                chkChar_merits.Checked = true;
+                chkChar_merit.Checked = true;
                 chkChar_equip.Checked = true;
                 chkChar_exp.Checked = true;
                 chkChar_inventory.Checked = true;
@@ -64,7 +64,7 @@ namespace dspAdmin
             else
             {
                 chkChars.Checked = false;
-                chkChar_merits.Checked = false;
+                chkChar_merit.Checked = false;
                 chkChar_equip.Checked = false;
                 chkChar_exp.Checked = false;
                 chkChar_inventory.Checked = false;
@@ -100,16 +100,24 @@ namespace dspAdmin
                 query = "Select * from " + current.Name.Remove(0, 3) + " where charid =" + charid;
                 MySqlCommand command = new MySqlCommand(query, connection);
                 MySqlDataReader reader = command.ExecuteReader();
+                DataTable dtreader = reader.GetSchemaTable();
                 while (reader.Read())
                 {
                     data.Sections.AddSection(current.Name.Remove(0, 3));
-
+                    int i = 0;
+                  foreach (DataRow field in dtreader.Rows)
+                    {
+                        data[current.Name.Remove(0, 3)].AddKey((string)field["ColumnName"], reader[i].ToString());
+                        i++;
+                    }
                 }
+                reader.Close();
             }
 
-
+            saveData.WriteFile("C:\\temp\\whasf.txt", data);
+            MessageBox.Show("Data saved for " + charName);
         }
-
+        
 
     }
 }
