@@ -31,60 +31,24 @@ namespace dspAdmin
             charid = Convert.ToInt16(charID);
         }
 
-        private void frmCharExport_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void chkEverything_CheckedChanged(object sender, EventArgs e)
         {
             if (chkEverything.Checked)
             {
-                chkChars.Checked = true;
-                chkChar_merit.Checked = true;
-                chkChar_equip.Checked = true;
-                chkChar_exp.Checked = true;
-                chkChar_inventory.Checked = true;
-                chkChar_jobs.Checked = true;
-                chkChar_look.Checked = true;
-                chkChar_pet.Checked = true;
-                chkChar_Pet_Name.Checked = true;
-                chkChar_Points.Checked = true;
-                chkChar_Profile.Checked = true;
-                chkChar_Skills.Checked = true;
-                chkChar_Spells.Checked = true;
-                chkChar_Stats.Checked = true;
-                chkChar_Storage.Checked = true;
-                chkChar_Style.Checked = true;
-                chkChar_Titles.Checked = true;
-                chkChar_Vars.Checked = true;
-                chkChar_weapon_skill_points.Checked = true;
-
+                foreach (Control c in groupBox1.Controls)
+                {
+                    CheckBox current = c as CheckBox;
+                    current.Checked = true;
+                }
             }
             else
             {
-                chkChars.Checked = false;
-                chkChar_merit.Checked = false;
-                chkChar_equip.Checked = false;
-                chkChar_exp.Checked = false;
-                chkChar_inventory.Checked = false;
-                chkChar_jobs.Checked = false;
-                chkChar_look.Checked = false;
-                chkChar_pet.Checked = false;
-                chkChar_Pet_Name.Checked = false;
-                chkChar_Points.Checked = false;
-                chkChar_Profile.Checked = false;
-                chkChar_Skills.Checked = false;
-                chkChar_Spells.Checked = false;
-                chkChar_Stats.Checked = false;
-                chkChar_Storage.Checked = false;
-                chkChar_Style.Checked = false;
-                chkChar_Titles.Checked = false;
-                chkChar_Vars.Checked = false;
-                chkChar_weapon_skill_points.Checked = false;
+                foreach (Control c in groupBox1.Controls)
+                {
+                    CheckBox current = c as CheckBox;
+                    current.Checked = false;
+                }
             }
-
-
         }
 
         private void btnExport_Click(object sender, EventArgs e)

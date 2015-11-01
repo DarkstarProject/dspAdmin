@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvCharacters = new System.Windows.Forms.DataGridView();
             this.clmStatus = new System.Windows.Forms.DataGridViewImageColumn();
             this.clmID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,6 +88,8 @@
             this.tmrRefreshCharList = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tmrRefreshChat = new System.Windows.Forms.Timer(this.components);
+            this.charImportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCharacters)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -174,40 +176,41 @@
             this.toolInventory,
             this.toolCharLook,
             this.toolCharSkills,
-            this.toolExportChar});
+            this.toolExportChar,
+            this.charImportToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(136, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(139, 136);
             // 
             // toolJobsExp
             // 
             this.toolJobsExp.Name = "toolJobsExp";
-            this.toolJobsExp.Size = new System.Drawing.Size(135, 22);
+            this.toolJobsExp.Size = new System.Drawing.Size(152, 22);
             this.toolJobsExp.Text = "Jobs && EXP";
             this.toolJobsExp.Click += new System.EventHandler(this.toolJobsExp_Click);
             // 
             // toolInventory
             // 
             this.toolInventory.Name = "toolInventory";
-            this.toolInventory.Size = new System.Drawing.Size(135, 22);
+            this.toolInventory.Size = new System.Drawing.Size(152, 22);
             this.toolInventory.Text = "Inventory";
             this.toolInventory.Click += new System.EventHandler(this.toolInventory_Click);
             // 
             // toolCharLook
             // 
             this.toolCharLook.Name = "toolCharLook";
-            this.toolCharLook.Size = new System.Drawing.Size(135, 22);
+            this.toolCharLook.Size = new System.Drawing.Size(152, 22);
             this.toolCharLook.Text = "Char Look";
             // 
             // toolCharSkills
             // 
             this.toolCharSkills.Name = "toolCharSkills";
-            this.toolCharSkills.Size = new System.Drawing.Size(135, 22);
+            this.toolCharSkills.Size = new System.Drawing.Size(152, 22);
             this.toolCharSkills.Text = "Char Skills";
             // 
             // toolExportChar
             // 
             this.toolExportChar.Name = "toolExportChar";
-            this.toolExportChar.Size = new System.Drawing.Size(135, 22);
+            this.toolExportChar.Size = new System.Drawing.Size(152, 22);
             this.toolExportChar.Text = "Char Export";
             this.toolExportChar.Click += new System.EventHandler(this.toolExportChar_Click);
             // 
@@ -527,14 +530,14 @@
             this.chatTo,
             this.chatMessage,
             this.chatTimestamp});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgChat.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgChat.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgChat.Location = new System.Drawing.Point(0, 3);
             this.dgChat.Name = "dgChat";
             this.dgChat.Size = new System.Drawing.Size(983, 388);
@@ -629,6 +632,19 @@
             this.tmrRefreshChat.Interval = 5000;
             this.tmrRefreshChat.Tick += new System.EventHandler(this.tmrRefreshChat_Tick);
             // 
+            // charImportToolStripMenuItem
+            // 
+            this.charImportToolStripMenuItem.Name = "charImportToolStripMenuItem";
+            this.charImportToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.charImportToolStripMenuItem.Text = "Char Import";
+            this.charImportToolStripMenuItem.Click += new System.EventHandler(this.charImportToolStripMenuItem_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.DefaultExt = "char";
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "Saved Characters|*.char|All Files|*.*";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -721,6 +737,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmIP;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmLastOn;
         private System.Windows.Forms.ToolStripMenuItem toolExportChar;
+        private System.Windows.Forms.ToolStripMenuItem charImportToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 

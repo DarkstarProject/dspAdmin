@@ -305,6 +305,10 @@
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.DefaultExt = "char";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -332,7 +336,6 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "DSP Character Export";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.frmCharExport_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

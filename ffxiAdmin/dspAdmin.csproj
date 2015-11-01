@@ -65,6 +65,12 @@
     <Compile Include="frmCharExport.designer.cs">
       <DependentUpon>frmCharExport.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCharImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCharImport.designer.cs">
+      <DependentUpon>frmCharImport.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmInventory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCharExport.resx">
       <DependentUpon>frmCharExport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCharImport.resx">
+      <DependentUpon>frmCharImport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInventory.resx">
       <DependentUpon>frmInventory.cs</DependentUpon>

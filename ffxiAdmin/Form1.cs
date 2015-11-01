@@ -478,6 +478,16 @@ namespace dspAdmin
             frmCharExport.Show();
         }
 
+        private void charImportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult result = openFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                frmCharImport frmChrImport = new frmCharImport(openFileDialog1.FileName, conn);
+                frmChrImport.Show();
+            }
+        }
+
         private void cbChatRefresh_CheckedChanged(object sender, EventArgs e)
         {
             if (cbChatRefresh.Checked)
