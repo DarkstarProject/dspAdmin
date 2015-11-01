@@ -29,8 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvCharacters = new System.Windows.Forms.DataGridView();
+            this.clmStatus = new System.Windows.Forms.DataGridViewImageColumn();
+            this.clmID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmAcctID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmCharName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmZone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmIP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmLastOn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolJobsExp = new System.Windows.Forms.ToolStripMenuItem();
             this.toolInventory = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,13 +87,7 @@
             this.tmrRefreshCharList = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tmrRefreshChat = new System.Windows.Forms.Timer(this.components);
-            this.clmStatus = new System.Windows.Forms.DataGridViewImageColumn();
-            this.clmID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmAcctID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmCharName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmZone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmIP = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmLastOn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.toolExportChar = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCharacters)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -123,40 +124,84 @@
             this.dgvCharacters.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgvCharacters_MouseDown);
             this.dgvCharacters.MouseMove += new System.Windows.Forms.MouseEventHandler(this.dgvCharacters_MouseMove);
             // 
+            // clmStatus
+            // 
+            this.clmStatus.HeaderText = "Status";
+            this.clmStatus.Name = "clmStatus";
+            this.clmStatus.ReadOnly = true;
+            this.clmStatus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.clmStatus.Width = 50;
+            // 
+            // clmID
+            // 
+            this.clmID.HeaderText = "Char ID";
+            this.clmID.Name = "clmID";
+            this.clmID.ReadOnly = true;
+            // 
+            // clmAcctID
+            // 
+            this.clmAcctID.HeaderText = "Acct Name";
+            this.clmAcctID.Name = "clmAcctID";
+            this.clmAcctID.ReadOnly = true;
+            // 
+            // clmCharName
+            // 
+            this.clmCharName.HeaderText = "Character";
+            this.clmCharName.Name = "clmCharName";
+            // 
+            // clmZone
+            // 
+            this.clmZone.HeaderText = "Zone";
+            this.clmZone.Name = "clmZone";
+            this.clmZone.Width = 150;
+            // 
+            // clmIP
+            // 
+            this.clmIP.HeaderText = "IP";
+            this.clmIP.Name = "clmIP";
+            this.clmIP.ReadOnly = true;
+            // 
+            // clmLastOn
+            // 
+            this.clmLastOn.HeaderText = "Last On";
+            this.clmLastOn.Name = "clmLastOn";
+            this.clmLastOn.Width = 130;
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolJobsExp,
             this.toolInventory,
             this.toolCharLook,
-            this.toolCharSkills});
+            this.toolCharSkills,
+            this.toolExportChar});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(134, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 136);
             // 
             // toolJobsExp
             // 
             this.toolJobsExp.Name = "toolJobsExp";
-            this.toolJobsExp.Size = new System.Drawing.Size(133, 22);
+            this.toolJobsExp.Size = new System.Drawing.Size(152, 22);
             this.toolJobsExp.Text = "Jobs && EXP";
             this.toolJobsExp.Click += new System.EventHandler(this.toolJobsExp_Click);
             // 
             // toolInventory
             // 
             this.toolInventory.Name = "toolInventory";
-            this.toolInventory.Size = new System.Drawing.Size(133, 22);
+            this.toolInventory.Size = new System.Drawing.Size(152, 22);
             this.toolInventory.Text = "Inventory";
             this.toolInventory.Click += new System.EventHandler(this.toolInventory_Click);
             // 
             // toolCharLook
             // 
             this.toolCharLook.Name = "toolCharLook";
-            this.toolCharLook.Size = new System.Drawing.Size(133, 22);
+            this.toolCharLook.Size = new System.Drawing.Size(152, 22);
             this.toolCharLook.Text = "Char Look";
             // 
             // toolCharSkills
             // 
             this.toolCharSkills.Name = "toolCharSkills";
-            this.toolCharSkills.Size = new System.Drawing.Size(133, 22);
+            this.toolCharSkills.Size = new System.Drawing.Size(152, 22);
             this.toolCharSkills.Text = "Char Skills";
             // 
             // groupBox2
@@ -475,14 +520,14 @@
             this.chatTo,
             this.chatMessage,
             this.chatTimestamp});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgChat.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgChat.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgChat.Location = new System.Drawing.Point(0, 3);
             this.dgChat.Name = "dgChat";
             this.dgChat.Size = new System.Drawing.Size(983, 388);
@@ -577,48 +622,12 @@
             this.tmrRefreshChat.Interval = 5000;
             this.tmrRefreshChat.Tick += new System.EventHandler(this.tmrRefreshChat_Tick);
             // 
-            // clmStatus
+            // toolExportChar
             // 
-            this.clmStatus.HeaderText = "Status";
-            this.clmStatus.Name = "clmStatus";
-            this.clmStatus.ReadOnly = true;
-            this.clmStatus.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.clmStatus.Width = 50;
-            // 
-            // clmID
-            // 
-            this.clmID.HeaderText = "Char ID";
-            this.clmID.Name = "clmID";
-            this.clmID.ReadOnly = true;
-            // 
-            // clmAcctID
-            // 
-            this.clmAcctID.HeaderText = "Acct Name";
-            this.clmAcctID.Name = "clmAcctID";
-            this.clmAcctID.ReadOnly = true;
-            // 
-            // clmCharName
-            // 
-            this.clmCharName.HeaderText = "Character";
-            this.clmCharName.Name = "clmCharName";
-            // 
-            // clmZone
-            // 
-            this.clmZone.HeaderText = "Zone";
-            this.clmZone.Name = "clmZone";
-            this.clmZone.Width = 150;
-            // 
-            // clmIP
-            // 
-            this.clmIP.HeaderText = "IP";
-            this.clmIP.Name = "clmIP";
-            this.clmIP.ReadOnly = true;
-            // 
-            // clmLastOn
-            // 
-            this.clmLastOn.HeaderText = "Last On";
-            this.clmLastOn.Name = "clmLastOn";
-            this.clmLastOn.Width = 130;
+            this.toolExportChar.Name = "toolExportChar";
+            this.toolExportChar.Size = new System.Drawing.Size(152, 22);
+            this.toolExportChar.Text = "Char Export";
+            this.toolExportChar.Click += new System.EventHandler(this.toolExportChar_Click);
             // 
             // Form1
             // 
@@ -712,6 +721,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn clmZone;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmIP;
         private System.Windows.Forms.DataGridViewTextBoxColumn clmLastOn;
+        private System.Windows.Forms.ToolStripMenuItem toolExportChar;
     }
 }
 

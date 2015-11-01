@@ -469,6 +469,14 @@ namespace dspAdmin
             refreshChat();
         }
 
+        private void toolExportChar_Click(object sender, EventArgs e)
+        {
+            selectedCharID = dgvCharacters.CurrentRow.Cells[1].Value.ToString();
+            selectedCharName = dgvCharacters.CurrentRow.Cells[3].Value.ToString();
+            frmCharExport frmCharExport = new frmCharExport(selectedCharID, selectedCharName, conn);
+            frmCharExport.Show();
+        }
+
         private void cbChatRefresh_CheckedChanged(object sender, EventArgs e)
         {
             if (cbChatRefresh.Checked)
