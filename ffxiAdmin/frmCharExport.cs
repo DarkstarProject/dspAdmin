@@ -31,9 +31,9 @@ namespace dspAdmin
             charid = Convert.ToInt16(charID);
         }
 
-         private void frmCharExport_Load(object sender, EventArgs e)
+        private void frmCharExport_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         private void chkEverything_CheckedChanged(object sender, EventArgs e)
@@ -105,19 +105,24 @@ namespace dspAdmin
                 {
                     data.Sections.AddSection(current.Name.Remove(0, 3));
                     int i = 0;
-                  foreach (DataRow field in dtreader.Rows)
+                    foreach (DataRow field in dtreader.Rows)
                     {
-                        data[current.Name.Remove(0, 3)].AddKey((string)field["ColumnName"], reader[i].ToString());
+                        if ((string)field["ColumnName"] != "charid")
+                        {
+                            if (reader[i].GetType().Name == "Byte[]")
+                                data[current.Name.Remove(0, 3)].AddKey((string)field["ColumnName"], Convert.ToBase64String((byte[])reader[i]));
+                            else
+                                data[current.Name.Remove(0, 3)].AddKey((string)field["ColumnName"], reader[i].ToString());
+                        }
                         i++;
                     }
                 }
                 reader.Close();
             }
-
-            saveData.WriteFile("C:\\temp\\whasf.txt", data);
+            DialogResult result = saveFileDialog1.ShowDialog();
+            if (result == DialogResult.OK)
+                saveData.WriteFile(saveFileDialog1.FileName, data);
             MessageBox.Show("Data saved for " + charName);
         }
-        
-
     }
 }

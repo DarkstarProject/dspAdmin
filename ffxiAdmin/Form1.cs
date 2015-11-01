@@ -133,6 +133,7 @@ namespace dspAdmin
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Text = "DSP Administrator v"+ System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString().Remove(5,2);
             RegistryKey regKey = Registry.CurrentUser.CreateSubKey("Software\\DSAdmin\\");
             if (regKey.GetValue("ServerName") != null)
                 txtServerName.Text = regKey.GetValue("ServerName").ToString();

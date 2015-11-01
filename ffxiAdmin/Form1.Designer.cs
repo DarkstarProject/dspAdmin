@@ -43,6 +43,7 @@
             this.toolInventory = new System.Windows.Forms.ToolStripMenuItem();
             this.toolCharLook = new System.Windows.Forms.ToolStripMenuItem();
             this.toolCharSkills = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolExportChar = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtCharListRefreshValue = new System.Windows.Forms.TextBox();
@@ -87,7 +88,6 @@
             this.tmrRefreshCharList = new System.Windows.Forms.Timer(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tmrRefreshChat = new System.Windows.Forms.Timer(this.components);
-            this.toolExportChar = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCharacters)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -176,33 +176,40 @@
             this.toolCharSkills,
             this.toolExportChar});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 136);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(136, 114);
             // 
             // toolJobsExp
             // 
             this.toolJobsExp.Name = "toolJobsExp";
-            this.toolJobsExp.Size = new System.Drawing.Size(152, 22);
+            this.toolJobsExp.Size = new System.Drawing.Size(135, 22);
             this.toolJobsExp.Text = "Jobs && EXP";
             this.toolJobsExp.Click += new System.EventHandler(this.toolJobsExp_Click);
             // 
             // toolInventory
             // 
             this.toolInventory.Name = "toolInventory";
-            this.toolInventory.Size = new System.Drawing.Size(152, 22);
+            this.toolInventory.Size = new System.Drawing.Size(135, 22);
             this.toolInventory.Text = "Inventory";
             this.toolInventory.Click += new System.EventHandler(this.toolInventory_Click);
             // 
             // toolCharLook
             // 
             this.toolCharLook.Name = "toolCharLook";
-            this.toolCharLook.Size = new System.Drawing.Size(152, 22);
+            this.toolCharLook.Size = new System.Drawing.Size(135, 22);
             this.toolCharLook.Text = "Char Look";
             // 
             // toolCharSkills
             // 
             this.toolCharSkills.Name = "toolCharSkills";
-            this.toolCharSkills.Size = new System.Drawing.Size(152, 22);
+            this.toolCharSkills.Size = new System.Drawing.Size(135, 22);
             this.toolCharSkills.Text = "Char Skills";
+            // 
+            // toolExportChar
+            // 
+            this.toolExportChar.Name = "toolExportChar";
+            this.toolExportChar.Size = new System.Drawing.Size(135, 22);
+            this.toolExportChar.Text = "Char Export";
+            this.toolExportChar.Click += new System.EventHandler(this.toolExportChar_Click);
             // 
             // groupBox2
             // 
@@ -622,13 +629,6 @@
             this.tmrRefreshChat.Interval = 5000;
             this.tmrRefreshChat.Tick += new System.EventHandler(this.tmrRefreshChat_Tick);
             // 
-            // toolExportChar
-            // 
-            this.toolExportChar.Name = "toolExportChar";
-            this.toolExportChar.Size = new System.Drawing.Size(152, 22);
-            this.toolExportChar.Text = "Char Export";
-            this.toolExportChar.Click += new System.EventHandler(this.toolExportChar_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -639,7 +639,6 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
-            this.Text = "DSP Administration ALPHA 0.43";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCharacters)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);

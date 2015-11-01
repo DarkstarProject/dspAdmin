@@ -30,7 +30,9 @@
         {
             this.lblExportCharacter = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.chkEverything = new System.Windows.Forms.CheckBox();
+            this.chkChar_Stats = new System.Windows.Forms.CheckBox();
+            this.chkChar_Spells = new System.Windows.Forms.CheckBox();
+            this.chkChar_Style = new System.Windows.Forms.CheckBox();
             this.chkChar_weapon_skill_points = new System.Windows.Forms.CheckBox();
             this.chkChar_Vars = new System.Windows.Forms.CheckBox();
             this.chkChar_Titles = new System.Windows.Forms.CheckBox();
@@ -47,21 +49,22 @@
             this.chkChar_equip = new System.Windows.Forms.CheckBox();
             this.chkChar_merit = new System.Windows.Forms.CheckBox();
             this.chkChars = new System.Windows.Forms.CheckBox();
+            this.chkEverything = new System.Windows.Forms.CheckBox();
             this.btnExport = new System.Windows.Forms.Button();
-            this.chkChar_Style = new System.Windows.Forms.CheckBox();
-            this.chkChar_Spells = new System.Windows.Forms.CheckBox();
-            this.chkChar_Stats = new System.Windows.Forms.CheckBox();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblExportCharacter
             // 
             this.lblExportCharacter.AutoSize = true;
-            this.lblExportCharacter.Location = new System.Drawing.Point(154, 38);
+            this.lblExportCharacter.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExportCharacter.Location = new System.Drawing.Point(57, 9);
             this.lblExportCharacter.Name = "lblExportCharacter";
-            this.lblExportCharacter.Size = new System.Drawing.Size(86, 13);
+            this.lblExportCharacter.Size = new System.Drawing.Size(152, 17);
             this.lblExportCharacter.TabIndex = 0;
-            this.lblExportCharacter.Text = "Export Character";
+            this.lblExportCharacter.Text = "Exporting Character";
             // 
             // groupBox1
             // 
@@ -91,16 +94,35 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Export:";
             // 
-            // chkEverything
+            // chkChar_Stats
             // 
-            this.chkEverything.AutoSize = true;
-            this.chkEverything.Location = new System.Drawing.Point(162, 80);
-            this.chkEverything.Name = "chkEverything";
-            this.chkEverything.Size = new System.Drawing.Size(76, 17);
-            this.chkEverything.TabIndex = 16;
-            this.chkEverything.Text = "Everything";
-            this.chkEverything.UseVisualStyleBackColor = true;
-            this.chkEverything.CheckedChanged += new System.EventHandler(this.chkEverything_CheckedChanged);
+            this.chkChar_Stats.AutoSize = true;
+            this.chkChar_Stats.Location = new System.Drawing.Point(191, 65);
+            this.chkChar_Stats.Name = "chkChar_Stats";
+            this.chkChar_Stats.Size = new System.Drawing.Size(50, 17);
+            this.chkChar_Stats.TabIndex = 19;
+            this.chkChar_Stats.Text = "Stats";
+            this.chkChar_Stats.UseVisualStyleBackColor = true;
+            // 
+            // chkChar_Spells
+            // 
+            this.chkChar_Spells.AutoSize = true;
+            this.chkChar_Spells.Location = new System.Drawing.Point(191, 42);
+            this.chkChar_Spells.Name = "chkChar_Spells";
+            this.chkChar_Spells.Size = new System.Drawing.Size(54, 17);
+            this.chkChar_Spells.TabIndex = 18;
+            this.chkChar_Spells.Text = "Spells";
+            this.chkChar_Spells.UseVisualStyleBackColor = true;
+            // 
+            // chkChar_Style
+            // 
+            this.chkChar_Style.AutoSize = true;
+            this.chkChar_Style.Location = new System.Drawing.Point(191, 111);
+            this.chkChar_Style.Name = "chkChar_Style";
+            this.chkChar_Style.Size = new System.Drawing.Size(49, 17);
+            this.chkChar_Style.TabIndex = 17;
+            this.chkChar_Style.Text = "Style";
+            this.chkChar_Style.UseVisualStyleBackColor = true;
             // 
             // chkChar_weapon_skill_points
             // 
@@ -262,6 +284,17 @@
             this.chkChars.Text = "Char Info";
             this.chkChars.UseVisualStyleBackColor = true;
             // 
+            // chkEverything
+            // 
+            this.chkEverything.AutoSize = true;
+            this.chkEverything.Location = new System.Drawing.Point(162, 80);
+            this.chkEverything.Name = "chkEverything";
+            this.chkEverything.Size = new System.Drawing.Size(76, 17);
+            this.chkEverything.TabIndex = 16;
+            this.chkEverything.Text = "Everything";
+            this.chkEverything.UseVisualStyleBackColor = true;
+            this.chkEverything.CheckedChanged += new System.EventHandler(this.chkEverything_CheckedChanged);
+            // 
             // btnExport
             // 
             this.btnExport.Location = new System.Drawing.Point(162, 336);
@@ -272,41 +305,23 @@
             this.btnExport.UseVisualStyleBackColor = true;
             this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
-            // chkChar_Style
+            // label1
             // 
-            this.chkChar_Style.AutoSize = true;
-            this.chkChar_Style.Location = new System.Drawing.Point(191, 111);
-            this.chkChar_Style.Name = "chkChar_Style";
-            this.chkChar_Style.Size = new System.Drawing.Size(49, 17);
-            this.chkChar_Style.TabIndex = 17;
-            this.chkChar_Style.Text = "Style";
-            this.chkChar_Style.UseVisualStyleBackColor = true;
-            // 
-            // chkChar_Spells
-            // 
-            this.chkChar_Spells.AutoSize = true;
-            this.chkChar_Spells.Location = new System.Drawing.Point(191, 42);
-            this.chkChar_Spells.Name = "chkChar_Spells";
-            this.chkChar_Spells.Size = new System.Drawing.Size(54, 17);
-            this.chkChar_Spells.TabIndex = 18;
-            this.chkChar_Spells.Text = "Spells";
-            this.chkChar_Spells.UseVisualStyleBackColor = true;
-            // 
-            // chkChar_Stats
-            // 
-            this.chkChar_Stats.AutoSize = true;
-            this.chkChar_Stats.Location = new System.Drawing.Point(191, 65);
-            this.chkChar_Stats.Name = "chkChar_Stats";
-            this.chkChar_Stats.Size = new System.Drawing.Size(50, 17);
-            this.chkChar_Stats.TabIndex = 19;
-            this.chkChar_Stats.Text = "Stats";
-            this.chkChar_Stats.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(63, 48);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(272, 16);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Make sure character is logged off first!";
             // 
             // frmCharExport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(407, 384);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblExportCharacter);
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.groupBox1);
@@ -314,7 +329,9 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmCharExport";
-            this.Text = "DSP Character Import/Export Utility";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.Text = "DSP Character Export";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.frmCharExport_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -348,6 +365,8 @@
         private System.Windows.Forms.CheckBox chkChar_Spells;
         private System.Windows.Forms.CheckBox chkChar_Style;
         private System.Windows.Forms.CheckBox chkChar_Stats;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.Label label1;
     }
 }
 
