@@ -40,12 +40,12 @@ namespace dspAdmin
                 {
                     string tName = current.Name.Remove(0, 3);
                     string columns = "";
-                    foreach (IniParser.Model.KeyData keys in (IniParser.Model.SectionData)tName)
-                    query = "insert into "+tName+" (charid,"+data[tName][]
+                 //   foreach (IniParser.Model.KeyData keys in (IniParser.Model.SectionData)tName)
+                  //  query = "insert into "+tName+" (charid,"+data[tName][]
                 }
 
-                query = "Select * from " + current.Name.Remove(0, 3) + " where charid =" + charid;
-                MySqlCommand command = new MySqlCommand(query, connection);
+              //  query = "Select * from " + current.Name.Remove(0, 3) + " where charid =" + charid;
+             //   MySqlCommand command = new MySqlCommand(query, connection);
             }
         }
 

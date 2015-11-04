@@ -83,10 +83,13 @@ namespace dspAdmin
                 }
                 reader.Close();
             }
+            saveFileDialog1.FileName = charName;
             DialogResult result = saveFileDialog1.ShowDialog();
             if (result == DialogResult.OK)
+            {
                 saveData.WriteFile(saveFileDialog1.FileName, data);
-            MessageBox.Show("Data saved for " + charName);
+                MessageBox.Show("Data saved for " + charName);
+            }
         }
     }
 }

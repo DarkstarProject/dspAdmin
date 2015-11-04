@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCharExport));
             this.lblExportCharacter = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.chkChar_Stats = new System.Windows.Forms.CheckBox();
@@ -308,6 +309,7 @@
             // saveFileDialog1
             // 
             this.saveFileDialog1.DefaultExt = "char";
+            this.saveFileDialog1.Filter = "Saved Characters|*.char|All Files|*.*";
             // 
             // label1
             // 
@@ -330,6 +332,7 @@
             this.Controls.Add(this.btnExport);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.chkEverything);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmCharExport";
