@@ -145,6 +145,9 @@ namespace dspAdmin
                 dgvCharacters.Rows.Add(listImg, reader["charid"].ToString(), result2, reader["charname"].ToString(), foundZone, charIP, result3);
                 charcount++;
             }
+            string query = "select count(distinct client_addr) from accounts_sessions;";
+            MySqlCommand myCmd0 = new MySqlCommand(query, conn3);
+            string distinctUsers = Convert.ToString(myCmd0.ExecuteScalar());
             reader.Close();
             conn2.Close();
             conn3.Close();
@@ -152,7 +155,7 @@ namespace dspAdmin
             
             if (sortColumn != null)
                 dgvCharacters.Sort(dgvCharacters.Columns[sortColumn.Index], lsDirection);
-            tlstrNumbers.Text = "Total: " + charcount.ToString() + " Online: " + charOnline.ToString();
+            tlstrNumbers.Text = "Total: " + charcount.ToString() + "   Characters Online: " + charOnline.ToString() + " Distinct: " + distinctUsers;
         }
 
         private void Form1_Load(object sender, EventArgs e)
