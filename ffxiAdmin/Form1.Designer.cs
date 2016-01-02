@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dgvCharacters = new System.Windows.Forms.DataGridView();
             this.clmStatus = new System.Windows.Forms.DataGridViewImageColumn();
@@ -119,9 +119,11 @@
             this.clmLastOn});
             this.dgvCharacters.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvCharacters.Location = new System.Drawing.Point(3, 3);
+            this.dgvCharacters.MultiSelect = false;
             this.dgvCharacters.Name = "dgvCharacters";
+            this.dgvCharacters.ReadOnly = true;
             this.dgvCharacters.RowHeadersVisible = false;
-            this.dgvCharacters.Size = new System.Drawing.Size(985, 478);
+            this.dgvCharacters.Size = new System.Drawing.Size(985, 479);
             this.dgvCharacters.TabIndex = 0;
             this.dgvCharacters.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCharacters_CellMouseEnter);
             this.dgvCharacters.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgvCharacters_MouseDown);
@@ -151,11 +153,13 @@
             // 
             this.clmCharName.HeaderText = "Character";
             this.clmCharName.Name = "clmCharName";
+            this.clmCharName.ReadOnly = true;
             // 
             // clmZone
             // 
             this.clmZone.HeaderText = "Zone";
             this.clmZone.Name = "clmZone";
+            this.clmZone.ReadOnly = true;
             this.clmZone.Width = 150;
             // 
             // clmIP
@@ -168,6 +172,7 @@
             // 
             this.clmLastOn.HeaderText = "Last On";
             this.clmLastOn.Name = "clmLastOn";
+            this.clmLastOn.ReadOnly = true;
             this.clmLastOn.Width = 130;
             // 
             // contextMenuStrip1
@@ -366,10 +371,11 @@
             this.tabControl1.Controls.Add(this.tabChat);
             this.tabControl1.Controls.Add(this.tabConfig);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.HotTrack = true;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(999, 510);
+            this.tabControl1.Size = new System.Drawing.Size(999, 511);
             this.tabControl1.TabIndex = 2;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -379,7 +385,7 @@
             this.tabCharacter.Location = new System.Drawing.Point(4, 22);
             this.tabCharacter.Name = "tabCharacter";
             this.tabCharacter.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCharacter.Size = new System.Drawing.Size(991, 484);
+            this.tabCharacter.Size = new System.Drawing.Size(991, 485);
             this.tabCharacter.TabIndex = 0;
             this.tabCharacter.Text = "Characters";
             this.tabCharacter.UseVisualStyleBackColor = true;
@@ -393,7 +399,7 @@
             this.tabMonsters.Location = new System.Drawing.Point(4, 22);
             this.tabMonsters.Name = "tabMonsters";
             this.tabMonsters.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMonsters.Size = new System.Drawing.Size(991, 484);
+            this.tabMonsters.Size = new System.Drawing.Size(991, 507);
             this.tabMonsters.TabIndex = 1;
             this.tabMonsters.Text = "Monsters";
             this.tabMonsters.UseVisualStyleBackColor = true;
@@ -472,7 +478,7 @@
             this.tabChat.Location = new System.Drawing.Point(4, 22);
             this.tabChat.Name = "tabChat";
             this.tabChat.Padding = new System.Windows.Forms.Padding(3);
-            this.tabChat.Size = new System.Drawing.Size(991, 484);
+            this.tabChat.Size = new System.Drawing.Size(991, 507);
             this.tabChat.TabIndex = 3;
             this.tabChat.Text = "Chatlog";
             this.tabChat.UseVisualStyleBackColor = true;
@@ -538,14 +544,14 @@
             this.chatTo,
             this.chatMessage,
             this.chatTimestamp});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgChat.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgChat.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgChat.Location = new System.Drawing.Point(0, 3);
             this.dgChat.Name = "dgChat";
             this.dgChat.Size = new System.Drawing.Size(983, 388);
@@ -589,7 +595,7 @@
             this.tabConfig.Location = new System.Drawing.Point(4, 22);
             this.tabConfig.Name = "tabConfig";
             this.tabConfig.Padding = new System.Windows.Forms.Padding(3);
-            this.tabConfig.Size = new System.Drawing.Size(991, 484);
+            this.tabConfig.Size = new System.Drawing.Size(991, 507);
             this.tabConfig.TabIndex = 2;
             this.tabConfig.Text = "Config";
             this.tabConfig.UseVisualStyleBackColor = true;
@@ -600,7 +606,7 @@
             this.tlstrConnected,
             this.tlstrTimer,
             this.tlstrNumbers});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 488);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 511);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(999, 22);
             this.statusStrip1.SizingGrip = false;
@@ -649,9 +655,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(999, 510);
-            this.Controls.Add(this.statusStrip1);
+            this.ClientSize = new System.Drawing.Size(999, 533);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.statusStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";

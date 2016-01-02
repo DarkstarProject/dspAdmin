@@ -30,22 +30,30 @@ namespace dspAdmin
             if (connection.State == ConnectionState.Closed)
                 connection.Open();
             string query = "";
+            string columns = "";
+            string values = "";
             query = "select max(charid) from chars";
             MySqlCommand cmd = new MySqlCommand(query, connection);
-            int result = (int)cmd.ExecuteScalar();
+            int nextCharID = Convert.ToInt32(cmd.ExecuteScalar());
+            cmd.Dispose();
+            nextCharID++;
             foreach (Control c in groupBox1.Controls)
             {
                 CheckBox current = c as CheckBox;
                 if (current.Checked)
                 {
                     string tName = current.Name.Remove(0, 3);
-                    string columns = "";
-                 //   foreach (IniParser.Model.KeyData keys in (IniParser.Model.SectionData)tName)
-                  //  query = "insert into "+tName+" (charid,"+data[tName][]
+                    foreach (IniParser.Model.KeyData keys in data[tName])
+                    {
+                        columns += ", " + keys.KeyName;
+                        values += "," + keys.Value;
+                    }
+                    columns = columns.Remove(0, 2);
+                    values = values.Remove(0, 2);
+                    query = "insert into " + tName + " (charid," + columns + ") values(" + nextCharID + ", " + values + ");";
+                    cmd = new MySqlCommand(query, connection);
+                    
                 }
-
-              //  query = "Select * from " + current.Name.Remove(0, 3) + " where charid =" + charid;
-             //   MySqlCommand command = new MySqlCommand(query, connection);
             }
         }
 

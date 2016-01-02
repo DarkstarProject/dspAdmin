@@ -55,9 +55,29 @@ namespace dspAdmin
         private Image imgOffline = dspAdmin.Properties.Resources.imgOffline;
         private Image imgOnline = dspAdmin.Properties.Resources.imgOnline;
         IPHostEntry remoteIP;
+        ListSortDirection lsDirection;
 
         public void getCharacterList()
         {
+            DataGridViewColumn sortColumn = dgvCharacters.SortedColumn;
+            if (sortColumn != null)
+            if (sortColumn.Index >= 0)
+            {
+                switch (dgvCharacters.SortOrder)
+                {
+                    case SortOrder.Ascending:
+                        lsDirection = ListSortDirection.Ascending;
+                        break;
+
+                    case SortOrder.Descending:
+                        lsDirection = ListSortDirection.Descending;
+                        break;
+
+                    default:
+                        lsDirection = ListSortDirection.Descending;
+                        break;
+                }
+            }
             dgvCharacters.Rows.Clear();
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
@@ -129,6 +149,9 @@ namespace dspAdmin
             conn2.Close();
             conn3.Close();
             conn4.Close();
+            
+            if (sortColumn != null)
+                dgvCharacters.Sort(dgvCharacters.Columns[sortColumn.Index], lsDirection);
             tlstrNumbers.Text = "Total: " + charcount.ToString() + " Online: " + charOnline.ToString();
         }
 

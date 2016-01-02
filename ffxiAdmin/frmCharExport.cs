@@ -75,6 +75,8 @@ namespace dspAdmin
                         {
                             if (reader[i].GetType().Name == "Byte[]")
                                 data[current.Name.Remove(0, 3)].AddKey((string)field["ColumnName"], Convert.ToBase64String((byte[])reader[i]));
+                       //     else if ((byte[])reader[i])
+                          //      data[current.Name.Remove(0, 3)].AddKey((string)field["ColumnName"], "null");
                             else
                                 data[current.Name.Remove(0, 3)].AddKey((string)field["ColumnName"], reader[i].ToString());
                         }
