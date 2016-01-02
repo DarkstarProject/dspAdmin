@@ -54,6 +54,7 @@ namespace dspAdmin
         bool connected = false;
         private Image imgOffline = dspAdmin.Properties.Resources.imgOffline;
         private Image imgOnline = dspAdmin.Properties.Resources.imgOnline;
+        IPHostEntry remoteIP;
 
         public void getCharacterList()
         {
@@ -212,16 +213,18 @@ namespace dspAdmin
                 DataGridView.HitTestInfo hitInfo = dgvCharacters.HitTest(mouseX, mouseY);
                 if (hitInfo.Type == DataGridViewHitTestType.Cell)
                 {
-                  //  selectedCharID = (dgvCharacters.Rows[hitInfo.RowIndex].Cells[1]).Value.ToString();
-                //    selectedCharName = (dgvCharacters.Rows[hitInfo.RowIndex].Cells[3]).Value.ToString();
-                 //   string chInfo = "select mjob,sjob from char_stats where charid=" + selectedCharID + ";";
-                    string charIP="";
+                    string charIP = "";
                     if (dgvCharacters.Rows[hitInfo.RowIndex].Cells[5].Value != null)
                         charIP = dgvCharacters.Rows[hitInfo.RowIndex].Cells[5].Value.ToString();
                     if (charIP != null)
                     {
-                        IPHostEntry remoteIP = Dns.GetHostEntry(charIP);
-                        toolTip1.SetToolTip(dgvCharacters, remoteIP.AddressList[0].ToString());
+                        try
+                        {
+                            remoteIP = Dns.GetHostEntry(charIP);
+                        }
+                        catch { }
+                        if (remoteIP.AddressList.Count() > 0)
+                            toolTip1.SetToolTip(dgvCharacters, remoteIP.AddressList[0].ToString());
                     }
                 }
             }
