@@ -387,7 +387,7 @@ namespace dspAdmin
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
             if (txtCharListRefreshValue.Text != null)
-                chatQuery = "select type, speaker, recipient, CONVERT(message using utf8), datetime from audit_chat order by datetime desc limit " + txtCharListRefreshValue.Text + ";";
+                chatQuery = "select type, lsname, speaker, recipient, CONVERT(message using utf8), datetime from audit_chat order by datetime desc limit " + txtCharListRefreshValue.Text + ";";
             else
             {
                 MessageBox.Show("Please enter a valid value for the number of messages displayed");
@@ -400,7 +400,7 @@ namespace dspAdmin
             dgChat.Rows.Clear();
             while (chatReader.Read())
             {
-                dgChat.Rows.Add(chatReader[0], chatReader[1], chatReader[2], chatReader[3], chatReader[4]);
+                dgChat.Rows.Add(chatReader[0], chatReader[1], chatReader[2], chatReader[3], chatReader[4], chatReader[5]);
             }
             chatReader.Close();
         }
