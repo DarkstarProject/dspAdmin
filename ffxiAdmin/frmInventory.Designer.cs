@@ -46,7 +46,7 @@
             this.dgvInventoryCheckbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dgvInventoryItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvInventoryItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmLocation = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.clmLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvInventoryItemAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCharInventory)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -129,6 +129,7 @@
             this.dgvCharInventory.TabIndex = 7;
             this.dgvCharInventory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dgvCharInventory.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCharInventory_CellEndEdit);
+            this.dgvCharInventory.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvCharInventory_DataError);
             // 
             // cmbItemType
             // 
@@ -245,6 +246,8 @@
             this.clmLocation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
             this.clmLocation.HeaderText = "Location";
             this.clmLocation.Name = "clmLocation";
+            this.clmLocation.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmLocation.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.clmLocation.Width = 54;
             // 
             // dgvInventoryItemAmount
@@ -302,7 +305,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn dgvInventoryCheckbox;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvInventoryItemID;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvInventoryItemName;
-        private System.Windows.Forms.DataGridViewComboBoxColumn clmLocation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn clmLocation;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvInventoryItemAmount;
     }
 }

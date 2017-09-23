@@ -136,7 +136,7 @@ namespace dspAdmin
             connection3.Dispose();
             foreach (inventoryItem item in colItems)
             {
-                dgvCharInventory.Rows.Add(false, item.id, item.description, item.quantity);
+                dgvCharInventory.Rows.Add(false, item.id, item.description, item.location, item.quantity);
             }
             //connection2.Open();
             //MySqlCommand allItemsCmd = new MySqlCommand("Select name from item_armor, item_basic, item_furnishing, item_usable, item_weapon;", connection2);
@@ -156,14 +156,14 @@ namespace dspAdmin
         }
         public class inventoryItem
         {
-            public int id;
-            public int location;
-            public int item;
-            public int quantity;
-            public string description;
+            private int id;
+            private int location;
+            private int item;
+            private int quantity;
+            private string description;
             // True=In Bazaar
-            public bool bazaar;
-            public string table;
+            private bool bazaar;
+            private string table;
         }
         public class inventoryItems : CollectionBase
         {
@@ -277,6 +277,11 @@ namespace dspAdmin
             //{
 
             //    sqlAddItem="insert into char_inventory values("+chId+","+itemLoc
+        }
+
+        private void dgvCharInventory_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+          //  MessageBox.Show(e.Exception.InnerException.ToString());
         }
 
         private void btnDeletefromChar_Click(object sender, EventArgs e)
