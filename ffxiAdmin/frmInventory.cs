@@ -156,14 +156,14 @@ namespace dspAdmin
         }
         public class inventoryItem
         {
-            private int id;
-            private int location;
-            private int item;
-            private int quantity;
-            private string description;
+            public int id;
+            public int location;
+            public int item;
+            public int quantity;
+            public string description;
             // True=In Bazaar
-            private bool bazaar;
-            private string table;
+            public bool bazaar;
+            public string table;
         }
         public class inventoryItems : CollectionBase
         {

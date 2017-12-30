@@ -52,6 +52,7 @@ namespace dspAdmin
         string selectedCharName = "";
         bool freezeSelection = false;
         bool connected = false;
+        bool inStartup = true;
         private Image imgOffline = dspAdmin.Properties.Resources.imgOffline;
         private Image imgOnline = dspAdmin.Properties.Resources.imgOnline;
         IPHostEntry remoteIP;
@@ -108,7 +109,11 @@ namespace dspAdmin
             }
             zoneReader.Close();
             zoneReader.Dispose();
-            string myQuery = "Select charid,accid,charname,pos_zone from chars order by charid;";
+            string myQuery = "";
+            if (chkShowOnlineOnly.Checked)
+                myQuery = "Select chars.charid,chars.accid,charname,pos_zone from chars inner join accounts_sessions on chars.charid=accounts_sessions.charid order by charid;";
+            else
+                myQuery = "Select charid,accid,charname,pos_zone from chars order by charid";
             MySqlCommand myCmd = new MySqlCommand(myQuery, conn);
             MySqlDataReader reader = myCmd.ExecuteReader();
             string foundZone="";
@@ -190,9 +195,20 @@ namespace dspAdmin
                     chkRefresh.Checked = true;
                 }
             }
+            if (regKey.GetValue("ShowOnlineOnly")!=null)
+            {
+                string chkOnlineONly = regKey.GetValue("ShowOnlineOnly").ToString();
+                if (chkOnlineONly == "1")
+                {
+                    chkShowOnlineOnly.Checked = true;
+                }
+                else
+                    chkShowOnlineOnly.Checked = false;
+            }
             regKey.Close();
             if (chkAutoConnect.Checked)
                 btnConnect_Click(null, null);
+            inStartup = false;
         }
 
         public class gameZone
@@ -514,6 +530,25 @@ namespace dspAdmin
             {
                 frmCharImport frmChrImport = new frmCharImport(openFileDialog1.FileName, conn);
                 frmChrImport.Show();
+            }
+        }
+
+        private void chkShowOnlineOnly_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!inStartup)
+            {
+                RegistryKey regKey = Registry.CurrentUser.CreateSubKey("Software\\DSAdmin\\");
+                if (chkShowOnlineOnly.Checked)
+                {
+                    regKey.SetValue("ShowOnlineOnly", "1");
+                    getCharacterList();
+                }
+                else
+                {
+                    regKey.SetValue("ShowOnlineOnly", "0");
+                    getCharacterList();
+                }
+                regKey.Close();
             }
         }
 

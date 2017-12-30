@@ -35,6 +35,11 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnAddtoChar = new System.Windows.Forms.Button();
             this.dgvCharInventory = new System.Windows.Forms.DataGridView();
+            this.dgvInventoryCheckbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dgvInventoryItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvInventoryItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvInventoryItemAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbItemType = new System.Windows.Forms.ComboBox();
             this.radInventory = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -43,11 +48,6 @@
             this.radHouse = new System.Windows.Forms.RadioButton();
             this.txtItemQuantity = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dgvInventoryCheckbox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dgvInventoryItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvInventoryItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvInventoryItemAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCharInventory)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -83,7 +83,7 @@
             // btnDeletefromChar
             // 
             this.btnDeletefromChar.Enabled = false;
-            this.btnDeletefromChar.Location = new System.Drawing.Point(99, 401);
+            this.btnDeletefromChar.Location = new System.Drawing.Point(62, 392);
             this.btnDeletefromChar.Name = "btnDeletefromChar";
             this.btnDeletefromChar.Size = new System.Drawing.Size(108, 23);
             this.btnDeletefromChar.TabIndex = 4;
@@ -94,7 +94,7 @@
             // btnSave
             // 
             this.btnSave.Enabled = false;
-            this.btnSave.Location = new System.Drawing.Point(438, 429);
+            this.btnSave.Location = new System.Drawing.Point(414, 392);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 5;
@@ -130,6 +130,45 @@
             this.dgvCharInventory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dgvCharInventory.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCharInventory_CellEndEdit);
             this.dgvCharInventory.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dgvCharInventory_DataError);
+            // 
+            // dgvInventoryCheckbox
+            // 
+            this.dgvInventoryCheckbox.HeaderText = "Select";
+            this.dgvInventoryCheckbox.Name = "dgvInventoryCheckbox";
+            this.dgvInventoryCheckbox.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgvInventoryCheckbox.Width = 50;
+            // 
+            // dgvInventoryItemID
+            // 
+            this.dgvInventoryItemID.HeaderText = "Item ID";
+            this.dgvInventoryItemID.Name = "dgvInventoryItemID";
+            this.dgvInventoryItemID.ReadOnly = true;
+            this.dgvInventoryItemID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInventoryItemID.Width = 75;
+            // 
+            // dgvInventoryItemName
+            // 
+            this.dgvInventoryItemName.HeaderText = "Item Name";
+            this.dgvInventoryItemName.Name = "dgvInventoryItemName";
+            this.dgvInventoryItemName.ReadOnly = true;
+            this.dgvInventoryItemName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvInventoryItemName.Width = 300;
+            // 
+            // clmLocation
+            // 
+            this.clmLocation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.clmLocation.HeaderText = "Location";
+            this.clmLocation.Name = "clmLocation";
+            this.clmLocation.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.clmLocation.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.clmLocation.Width = 54;
+            // 
+            // dgvInventoryItemAmount
+            // 
+            this.dgvInventoryItemAmount.FillWeight = 75F;
+            this.dgvInventoryItemAmount.HeaderText = "Amount";
+            this.dgvInventoryItemAmount.Name = "dgvInventoryItemAmount";
+            this.dgvInventoryItemAmount.Width = 75;
             // 
             // cmbItemType
             // 
@@ -218,50 +257,11 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "Quantity:";
             // 
-            // dgvInventoryCheckbox
-            // 
-            this.dgvInventoryCheckbox.HeaderText = "Select";
-            this.dgvInventoryCheckbox.Name = "dgvInventoryCheckbox";
-            this.dgvInventoryCheckbox.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dgvInventoryCheckbox.Width = 50;
-            // 
-            // dgvInventoryItemID
-            // 
-            this.dgvInventoryItemID.HeaderText = "Item ID";
-            this.dgvInventoryItemID.Name = "dgvInventoryItemID";
-            this.dgvInventoryItemID.ReadOnly = true;
-            this.dgvInventoryItemID.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInventoryItemID.Width = 75;
-            // 
-            // dgvInventoryItemName
-            // 
-            this.dgvInventoryItemName.HeaderText = "Item Name";
-            this.dgvInventoryItemName.Name = "dgvInventoryItemName";
-            this.dgvInventoryItemName.ReadOnly = true;
-            this.dgvInventoryItemName.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvInventoryItemName.Width = 300;
-            // 
-            // clmLocation
-            // 
-            this.clmLocation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.clmLocation.HeaderText = "Location";
-            this.clmLocation.Name = "clmLocation";
-            this.clmLocation.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.clmLocation.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.clmLocation.Width = 54;
-            // 
-            // dgvInventoryItemAmount
-            // 
-            this.dgvInventoryItemAmount.FillWeight = 75F;
-            this.dgvInventoryItemAmount.HeaderText = "Amount";
-            this.dgvInventoryItemAmount.Name = "dgvInventoryItemAmount";
-            this.dgvInventoryItemAmount.Width = 75;
-            // 
             // frmInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(950, 488);
+            this.ClientSize = new System.Drawing.Size(966, 429);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtItemQuantity);
             this.Controls.Add(this.groupBox1);

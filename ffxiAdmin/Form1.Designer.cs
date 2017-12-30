@@ -77,6 +77,12 @@
             this.btnChatRefresh = new System.Windows.Forms.Button();
             this.cbChatRefresh = new System.Windows.Forms.CheckBox();
             this.dgChat = new System.Windows.Forms.DataGridView();
+            this.chatType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clmLSNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chatFrom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chatTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chatMessage = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chatTimestamp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabConfig = new System.Windows.Forms.TabPage();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tlstrConnected = new System.Windows.Forms.ToolStripStatusLabel();
@@ -86,12 +92,8 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tmrRefreshChat = new System.Windows.Forms.Timer(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.chatType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.clmLSNAME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chatFrom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chatTo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chatMessage = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chatTimestamp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chkShowOnlineOnly = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCharacters)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -103,6 +105,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgChat)).BeginInit();
             this.tabConfig.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvCharacters
@@ -124,7 +127,7 @@
             this.dgvCharacters.Name = "dgvCharacters";
             this.dgvCharacters.ReadOnly = true;
             this.dgvCharacters.RowHeadersVisible = false;
-            this.dgvCharacters.Size = new System.Drawing.Size(985, 479);
+            this.dgvCharacters.Size = new System.Drawing.Size(1008, 479);
             this.dgvCharacters.TabIndex = 0;
             this.dgvCharacters.CellMouseEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCharacters_CellMouseEnter);
             this.dgvCharacters.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dgvCharacters_MouseDown);
@@ -243,7 +246,7 @@
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.txtServerName);
             this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Location = new System.Drawing.Point(3, 184);
+            this.groupBox2.Location = new System.Drawing.Point(8, 43);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(640, 212);
             this.groupBox2.TabIndex = 1;
@@ -386,7 +389,7 @@
             this.tabCharacter.Location = new System.Drawing.Point(4, 22);
             this.tabCharacter.Name = "tabCharacter";
             this.tabCharacter.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCharacter.Size = new System.Drawing.Size(991, 485);
+            this.tabCharacter.Size = new System.Drawing.Size(1014, 485);
             this.tabCharacter.TabIndex = 0;
             this.tabCharacter.Text = "Characters";
             this.tabCharacter.UseVisualStyleBackColor = true;
@@ -400,7 +403,7 @@
             this.tabMonsters.Location = new System.Drawing.Point(4, 22);
             this.tabMonsters.Name = "tabMonsters";
             this.tabMonsters.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMonsters.Size = new System.Drawing.Size(991, 485);
+            this.tabMonsters.Size = new System.Drawing.Size(1014, 485);
             this.tabMonsters.TabIndex = 1;
             this.tabMonsters.Text = "Monsters";
             this.tabMonsters.UseVisualStyleBackColor = true;
@@ -559,13 +562,51 @@
             this.dgChat.Size = new System.Drawing.Size(1011, 388);
             this.dgChat.TabIndex = 0;
             // 
+            // chatType
+            // 
+            this.chatType.HeaderText = "Type";
+            this.chatType.Name = "chatType";
+            this.chatType.ReadOnly = true;
+            // 
+            // clmLSNAME
+            // 
+            this.clmLSNAME.HeaderText = "LSName";
+            this.clmLSNAME.Name = "clmLSNAME";
+            // 
+            // chatFrom
+            // 
+            this.chatFrom.HeaderText = "From";
+            this.chatFrom.Name = "chatFrom";
+            this.chatFrom.ReadOnly = true;
+            // 
+            // chatTo
+            // 
+            this.chatTo.HeaderText = "To";
+            this.chatTo.Name = "chatTo";
+            this.chatTo.ReadOnly = true;
+            // 
+            // chatMessage
+            // 
+            this.chatMessage.HeaderText = "Message";
+            this.chatMessage.Name = "chatMessage";
+            this.chatMessage.ReadOnly = true;
+            this.chatMessage.Width = 450;
+            // 
+            // chatTimestamp
+            // 
+            this.chatTimestamp.HeaderText = "Timestamp";
+            this.chatTimestamp.Name = "chatTimestamp";
+            this.chatTimestamp.ReadOnly = true;
+            this.chatTimestamp.Width = 150;
+            // 
             // tabConfig
             // 
+            this.tabConfig.Controls.Add(this.groupBox1);
             this.tabConfig.Controls.Add(this.groupBox2);
             this.tabConfig.Location = new System.Drawing.Point(4, 22);
             this.tabConfig.Name = "tabConfig";
             this.tabConfig.Padding = new System.Windows.Forms.Padding(3);
-            this.tabConfig.Size = new System.Drawing.Size(991, 485);
+            this.tabConfig.Size = new System.Drawing.Size(1014, 485);
             this.tabConfig.TabIndex = 2;
             this.tabConfig.Text = "Config";
             this.tabConfig.UseVisualStyleBackColor = true;
@@ -621,42 +662,28 @@
             this.openFileDialog1.DefaultExt = "char";
             this.openFileDialog1.Filter = "Saved Characters|*.char|All Files|*.*";
             // 
-            // chatType
+            // groupBox1
             // 
-            this.chatType.HeaderText = "Type";
-            this.chatType.Name = "chatType";
-            this.chatType.ReadOnly = true;
+            this.groupBox1.Controls.Add(this.chkShowOnlineOnly);
+            this.groupBox1.Location = new System.Drawing.Point(8, 282);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(497, 146);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Other";
             // 
-            // clmLSNAME
+            // chkShowOnlineOnly
             // 
-            this.clmLSNAME.HeaderText = "LSName";
-            this.clmLSNAME.Name = "clmLSNAME";
-            // 
-            // chatFrom
-            // 
-            this.chatFrom.HeaderText = "From";
-            this.chatFrom.Name = "chatFrom";
-            this.chatFrom.ReadOnly = true;
-            // 
-            // chatTo
-            // 
-            this.chatTo.HeaderText = "To";
-            this.chatTo.Name = "chatTo";
-            this.chatTo.ReadOnly = true;
-            // 
-            // chatMessage
-            // 
-            this.chatMessage.HeaderText = "Message";
-            this.chatMessage.Name = "chatMessage";
-            this.chatMessage.ReadOnly = true;
-            this.chatMessage.Width = 450;
-            // 
-            // chatTimestamp
-            // 
-            this.chatTimestamp.HeaderText = "Timestamp";
-            this.chatTimestamp.Name = "chatTimestamp";
-            this.chatTimestamp.ReadOnly = true;
-            this.chatTimestamp.Width = 150;
+            this.chkShowOnlineOnly.AutoSize = true;
+            this.chkShowOnlineOnly.Checked = true;
+            this.chkShowOnlineOnly.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkShowOnlineOnly.Location = new System.Drawing.Point(23, 34);
+            this.chkShowOnlineOnly.Name = "chkShowOnlineOnly";
+            this.chkShowOnlineOnly.Size = new System.Drawing.Size(159, 17);
+            this.chkShowOnlineOnly.TabIndex = 0;
+            this.chkShowOnlineOnly.Text = "Show online characters only";
+            this.chkShowOnlineOnly.UseVisualStyleBackColor = true;
+            this.chkShowOnlineOnly.CheckedChanged += new System.EventHandler(this.chkShowOnlineOnly_CheckedChanged);
             // 
             // Form1
             // 
@@ -686,6 +713,8 @@
             this.tabConfig.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -754,6 +783,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn chatTo;
         private System.Windows.Forms.DataGridViewTextBoxColumn chatMessage;
         private System.Windows.Forms.DataGridViewTextBoxColumn chatTimestamp;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox chkShowOnlineOnly;
     }
 }
 
