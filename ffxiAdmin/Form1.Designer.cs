@@ -84,6 +84,8 @@
             this.chatMessage = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chatTimestamp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabConfig = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chkShowOnlineOnly = new System.Windows.Forms.CheckBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tlstrConnected = new System.Windows.Forms.ToolStripStatusLabel();
             this.tlstrTimer = new System.Windows.Forms.ToolStripStatusLabel();
@@ -92,8 +94,6 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tmrRefreshChat = new System.Windows.Forms.Timer(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.chkShowOnlineOnly = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCharacters)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -104,8 +104,8 @@
             this.tabChat.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgChat)).BeginInit();
             this.tabConfig.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvCharacters
@@ -507,7 +507,7 @@
             // 
             // txtShowMessages
             // 
-            this.txtShowMessages.Location = new System.Drawing.Point(519, 408);
+            this.txtShowMessages.Location = new System.Drawing.Point(519, 407);
             this.txtShowMessages.Name = "txtShowMessages";
             this.txtShowMessages.Size = new System.Drawing.Size(41, 20);
             this.txtShowMessages.TabIndex = 3;
@@ -611,6 +611,29 @@
             this.tabConfig.Text = "Config";
             this.tabConfig.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.chkShowOnlineOnly);
+            this.groupBox1.Location = new System.Drawing.Point(8, 282);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(497, 146);
+            this.groupBox1.TabIndex = 2;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Other";
+            // 
+            // chkShowOnlineOnly
+            // 
+            this.chkShowOnlineOnly.AutoSize = true;
+            this.chkShowOnlineOnly.Checked = true;
+            this.chkShowOnlineOnly.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkShowOnlineOnly.Location = new System.Drawing.Point(23, 34);
+            this.chkShowOnlineOnly.Name = "chkShowOnlineOnly";
+            this.chkShowOnlineOnly.Size = new System.Drawing.Size(159, 17);
+            this.chkShowOnlineOnly.TabIndex = 0;
+            this.chkShowOnlineOnly.Text = "Show online characters only";
+            this.chkShowOnlineOnly.UseVisualStyleBackColor = true;
+            this.chkShowOnlineOnly.CheckedChanged += new System.EventHandler(this.chkShowOnlineOnly_CheckedChanged);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -662,29 +685,6 @@
             this.openFileDialog1.DefaultExt = "char";
             this.openFileDialog1.Filter = "Saved Characters|*.char|All Files|*.*";
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.chkShowOnlineOnly);
-            this.groupBox1.Location = new System.Drawing.Point(8, 282);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(497, 146);
-            this.groupBox1.TabIndex = 2;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Other";
-            // 
-            // chkShowOnlineOnly
-            // 
-            this.chkShowOnlineOnly.AutoSize = true;
-            this.chkShowOnlineOnly.Checked = true;
-            this.chkShowOnlineOnly.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkShowOnlineOnly.Location = new System.Drawing.Point(23, 34);
-            this.chkShowOnlineOnly.Name = "chkShowOnlineOnly";
-            this.chkShowOnlineOnly.Size = new System.Drawing.Size(159, 17);
-            this.chkShowOnlineOnly.TabIndex = 0;
-            this.chkShowOnlineOnly.Text = "Show online characters only";
-            this.chkShowOnlineOnly.UseVisualStyleBackColor = true;
-            this.chkShowOnlineOnly.CheckedChanged += new System.EventHandler(this.chkShowOnlineOnly_CheckedChanged);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -711,10 +711,10 @@
             this.tabChat.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgChat)).EndInit();
             this.tabConfig.ResumeLayout(false);
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

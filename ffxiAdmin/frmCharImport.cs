@@ -51,6 +51,7 @@ namespace dspAdmin
                     columns = columns.Remove(0, 2);
                     values = values.Remove(0, 2);
                     query = "insert into " + tName + " (charid," + columns + ") values(" + nextCharID + ", " + values + ");";
+                    // TODO : Don't forget the byte fields!
                     cmd = new MySqlCommand(query, connection);
                     
                 }
