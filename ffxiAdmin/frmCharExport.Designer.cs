@@ -34,7 +34,6 @@
             this.chkChar_Stats = new System.Windows.Forms.CheckBox();
             this.chkChar_Spells = new System.Windows.Forms.CheckBox();
             this.chkChar_Style = new System.Windows.Forms.CheckBox();
-            this.chkChar_weapon_skill_points = new System.Windows.Forms.CheckBox();
             this.chkChar_Vars = new System.Windows.Forms.CheckBox();
             this.chkChar_Titles = new System.Windows.Forms.CheckBox();
             this.chkChar_Storage = new System.Windows.Forms.CheckBox();
@@ -72,7 +71,6 @@
             this.groupBox1.Controls.Add(this.chkChar_Stats);
             this.groupBox1.Controls.Add(this.chkChar_Spells);
             this.groupBox1.Controls.Add(this.chkChar_Style);
-            this.groupBox1.Controls.Add(this.chkChar_weapon_skill_points);
             this.groupBox1.Controls.Add(this.chkChar_Vars);
             this.groupBox1.Controls.Add(this.chkChar_Titles);
             this.groupBox1.Controls.Add(this.chkChar_Storage);
@@ -124,16 +122,6 @@
             this.chkChar_Style.TabIndex = 17;
             this.chkChar_Style.Text = "Style";
             this.chkChar_Style.UseVisualStyleBackColor = true;
-            // 
-            // chkChar_weapon_skill_points
-            // 
-            this.chkChar_weapon_skill_points.AutoSize = true;
-            this.chkChar_weapon_skill_points.Location = new System.Drawing.Point(191, 180);
-            this.chkChar_weapon_skill_points.Name = "chkChar_weapon_skill_points";
-            this.chkChar_weapon_skill_points.Size = new System.Drawing.Size(76, 17);
-            this.chkChar_weapon_skill_points.TabIndex = 15;
-            this.chkChar_weapon_skill_points.Text = "WS Points";
-            this.chkChar_weapon_skill_points.UseVisualStyleBackColor = true;
             // 
             // chkChar_Vars
             // 
@@ -351,7 +339,6 @@
         private System.Windows.Forms.Label lblExportCharacter;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.CheckBox chkEverything;
-        private System.Windows.Forms.CheckBox chkChar_weapon_skill_points;
         private System.Windows.Forms.CheckBox chkChar_Vars;
         private System.Windows.Forms.CheckBox chkChar_Titles;
         private System.Windows.Forms.CheckBox chkChar_Storage;
