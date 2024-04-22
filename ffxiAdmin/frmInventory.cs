@@ -6,8 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using MySql.Data;
+using MySqlConnector;
+
 using System.Collections;
 using System.Globalization;
 
@@ -24,8 +24,8 @@ namespace dspAdmin
             InitializeComponent();
             this.Text = "Inventory of: " + charName;
             connection = conn;
-            connection2 = conn.Clone();
-            connection3 = conn.Clone();
+            connection2 = (MySqlConnection)conn.Clone();
+            connection3 = (MySqlConnection)conn.Clone();
             connection2.Open();
             connection3.Open();
             chId=charID;

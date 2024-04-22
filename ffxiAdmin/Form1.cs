@@ -6,8 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using MySql.Data;
+using MySqlConnector;
+
 using System.Collections;
 using Microsoft.Win32;
 using System.Net;
@@ -82,9 +82,9 @@ namespace dspAdmin
             dgvCharacters.Rows.Clear();
             if (conn.State == ConnectionState.Closed)
                 conn.Open();
-            conn2 = conn.Clone();
-            conn3 = conn.Clone();
-            conn4 = conn.Clone();
+            conn2 = (MySqlConnection)conn.Clone();
+            conn3 = (MySqlConnection)conn.Clone();
+            conn4 = (MySqlConnection)conn.Clone();
             string myZoneQuery="";
                 myZoneQuery = "Select zoneid,name from zone_settings;";
             
@@ -330,7 +330,7 @@ namespace dspAdmin
             bool iFailed = false;
             if (txtServerName.Text == "" | txtDB.Text == "" | txtDBUname.Text == "" | txtDBPassword.Text == "")
                 return false;
-            MySqlConnection connectionTest = new MySqlConnection("Address = " + txtServerName.Text + ";Database=" + txtDB.Text + ";Persist Security Info=true;User Name='" + txtDBUname.Text + "';Password='" + txtDBPassword.Text + "';Convert Zero Datetime=True");
+            MySqlConnection connectionTest = new MySqlConnection("server = " + txtServerName.Text + ";Database=" + txtDB.Text + ";Persist Security Info=true;User id='" + txtDBUname.Text + "';Password='" + txtDBPassword.Text + "';Convert Zero Datetime=True;pooling=false");
             try
             {
                 connectionTest.Open();
@@ -350,7 +350,7 @@ namespace dspAdmin
         }
         private void createMySQLConnection()
         {
-            string connection = "Address = " + txtServerName.Text + ";Database=" + txtDB.Text + ";Persist Security Info=true;User Name='" + txtDBUname.Text + "';Password='" + txtDBPassword.Text + "';Convert Zero Datetime=True";
+            string connection = "server = " + txtServerName.Text + ";Database=" + txtDB.Text + ";Persist Security Info=true;User id='" + txtDBUname.Text + "';Password='" + txtDBPassword.Text + "';Convert Zero Datetime=True;pooling=false";
             conn = new MySqlConnection(connection);
         }
 
